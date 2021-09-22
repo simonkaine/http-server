@@ -1,13 +1,24 @@
-import app from '../lib/app.js';
-import request from 'supertest';
-import { readFile } from 'fs/promises.js';
+const app = require('../lib/app.js');
+const request = require('supertest');
+const { readFile } = require('fs/promises');
 
-describe('index.html', async () => {
+describe('static server tests', () => {
+
   it('It tests for the return of html from static index.html file', async () => {
-    const [response, indexHTML] = await Promise.all([
+    const [response, file] = await Promise.all([
       request(app).get('/'),
-      readFile('../public/index.html', 'utf-8')
+      readFile('./public/index.html', 'utf-8')
     ]);
-    expect(response.text).toEqual(indexHTML);
-  });   
+    expect(response.text).toEqual(file);
+  });  
+  
+  // it('It tests for the return of CSS from GET of /styles/main.css', async () => {
+  //   const [response, file] = await Promise.all([
+  //     request(app).get('/styles/main.css'),
+  //     readFile('./public/styles/main.css', 'utf-8')
+  //   ]);
+  //   expect(response.text).toEqual(file);
+  // });  
+  
 });
+  

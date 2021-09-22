@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --verbose --runInBand --testLocationInResults",
     "test:watch": "npm run test -- --watch",
-    "start": "node index.js",
-    "start:watch": "nodemon index.js"
+    "start": "node server.js",
+    "start:watch": "nodemon server.js"
   },
   "jest": {
     "testEnvironment": "node"
