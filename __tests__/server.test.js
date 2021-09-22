@@ -12,13 +12,13 @@ describe('static server tests', () => {
     expect(response.text).toEqual(file);
   });  
   
-  // it('It tests for the return of CSS from GET of /styles/main.css', async () => {
-  //   const [response, file] = await Promise.all([
-  //     request(app).get('/styles/main.css'),
-  //     readFile('./public/styles/main.css', 'utf-8')
-  //   ]);
-  //   expect(response.text).toEqual(file);
-  // });  
+  it('It tests for the return of CSS from GET of /styles/main.css', async () => {
+    const [response, file] = await Promise.all([
+      request(app).get('/styles/main.css'),
+      readFile('./public/styles/main.css', 'utf-8')
+    ]);
+    expect(response.text).toEqual(file);
+  });  
   
 });
   
